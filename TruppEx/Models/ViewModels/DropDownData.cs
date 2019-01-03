@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TruppEx.Models
+namespace TruppEx.Models.ViewModels
 {
     public class DropDownData
     {

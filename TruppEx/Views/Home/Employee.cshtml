@@ -1,5 +1,21 @@
-﻿@{
+﻿@model TruppEx.Models.ViewModels.EmployeeData
+
+@{
     ViewData["Title"] = "By Employee";
 }
 
-<h1>@ViewData["EmployeeID"]</h1>
+@foreach (var ee in Model.Employees)
+{
+    <h1>@ee.FullName</h1>
+}
+
+@foreach (var lt in Model.LifeEventTypes)
+{
+    <h1>@lt.Type</h1>
+}
+
+@foreach (var le in Model.LifeEvents)
+{
+    <h1>@le.EventDate.ToShortDateString()</h1>
+}
+
