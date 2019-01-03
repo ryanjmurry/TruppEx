@@ -4,44 +4,82 @@
     ViewData["Title"] = "Home Page";
 }
 
-<form action="/home/employee" method="get">
-    <div>
-        <select name="employeeID" id="employeeDropDown">
-            <option value="">Select an Employee</option>
-            @foreach (var employee in Model.Employees)
-            {
-                <option value="@employee.EmployeeID">@employee.FullName</option>
-            }
-        </select>
+<div class="page-header">
+    <h2 class="mdc-typography--headline2">Trupp Employee Coding Exercise</h2>
+</div>
+<div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell">
+            <h6 class="mdc-typography--headline6">Search Life Events By Employee</h6>
+            <form action="/home/employee" method="get">
+                <div class="mdc-select demo-width-class" data-mdc-auto-init="MDCSelect">
+                    <input type="hidden" name="employeeID">
+                    <i class="mdc-select__dropdown-icon"></i>
+                    <div class="mdc-select__selected-text"></div>
+                    <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
+                        <ul class="mdc-list">
+                            <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+                            @foreach (var employee in Model.Employees)
+                            {
+                                <li class="mdc-list-item" data-value="@employee.EmployeeID">
+                                    @employee.FullName
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <span class="mdc-floating-label">Select an Employee</span>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+                <div class="button-div">
+                    <button type="submit" class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple">Search</button>
+                </div>
+            </form>
+        </div>
+        <div class="mdc-layout-grid__cell">
+            <h6 class="mdc-typography--headline6">Search Life Events By Type</h6>
+            <form action="/home/type" method="get">
+                <div class="mdc-select demo-width-class" data-mdc-auto-init="MDCSelect">
+                    <input type="hidden" name="lifeEventTypeID">
+                    <i class="mdc-select__dropdown-icon"></i>
+                    <div class="mdc-select__selected-text"></div>
+                    <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
+                        <ul class="mdc-list">
+                            <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+                            @foreach (var lifeEventType in Model.LifeEventTypes)
+                            {
+                                <li class="mdc-list-item" data-value="@lifeEventType.LifeEventTypeID">
+                                    @lifeEventType.Type
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <span class="mdc-floating-label">Select a Life Event</span>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+                <div class="button-div">
+                    <button type="submit" class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple">Search</button>
+                </div>
+            </form>
+        </div>
+        <div class="mdc-layout-grid__cell">
+            <h6 class="mdc-typography--headline6">Search Life Events By Date Range</h6>
+            <form action="/home/date" method="get">
+                <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+                    <input type="date" name="startDate" id="start-date-text-field" class="mdc-text-field__input">
+                    <label class="mdc-floating-label" for="my-text-field">Starting Date</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+                <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+                    <input type="date" name="endDate" id="start-date-text-field" class="mdc-text-field__input">
+                    <label class="mdc-floating-label" for="my-text-field">Ending Date</label>
+                    <div class="mdc-line-ripple"></div>
+                </div>
+                <div class="button-div">
+                    <button type="submit" class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple">Search</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div>
-        <button type="submit">Test</button>
-    </div>
-</form>
-<form action="/home/type" method="get">
-    <div>
-        <select name="lifeEventTypeID" id="lifeEventTypeDropDown">
-            <option value="">Select a Life Event Type</option>
-            @foreach (var lifeEventType in Model.LifeEventTypes)
-            {
-                <option value="@lifeEventType.LifeEventTypeID">@lifeEventType.Type</option>
-            }
-        </select>
-    </div>
-    <div>
-        <button type="submit">Test</button>
-    </div>
-</form>
-<form action="/home/date" method="get">
-    <div>
-        <span>Start Date</span>
-        <input type="date" name="startDate" />
-    </div>
-    <div>
-        <span>End Date</span>
-        <input type="date" name="endDate" />
-    </div>
-    <div>
-        <button type="submit">Test</button>
-    </div>
-</form>
+</div>
+
+
