@@ -43,16 +43,29 @@ namespace TruppEx.Controllers
                              where le.EmployeeID == employeeID
                              select le,
                 Employees = from ee in _context.Employees
-                           where ee.EmployeeID == employeeID
-                           select ee
+                            where ee.EmployeeID == employeeID
+                            select ee
             };
             return View(employeeData);
         }
 
         public IActionResult Type(int lifeEventTypeID)
         {
-            ViewData["LifeEventTypeID"] = lifeEventTypeID;
-            return View();
+            EmployeeData employeeData = new EmployeeData
+            {
+                LifeEvents = from le in _context.LifeEvents
+                             join ee in _context.Employees on le.EmployeeID equals ee.EmployeeID
+                             where le.LifeEventTypeID == lifeEventTypeID
+                             select le,
+                Employees = from le in _context.LifeEvents
+                            join ee in _context.Employees on le.EmployeeID equals ee.EmployeeID
+                            where le.LifeEventTypeID == lifeEventTypeID
+                            select ee,
+                LifeEventTypes = from lt in _context.LifeEventTypes
+                                 where lt.LifeEventTypeID == lifeEventTypeID
+                                 select lt
+            };
+            return View(employeeData);
         }
 
         public IActionResult Date(DateTime? startDate, DateTime? endDate)
