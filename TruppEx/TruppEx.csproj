@@ -14,4 +14,10 @@
     <Content Remove="wwwroot\lib\bootstrap\.bower.json" />
     <Content Remove="wwwroot\images\banner1.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\LifeEvents.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
 </Project>
