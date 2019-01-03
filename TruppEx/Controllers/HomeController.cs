@@ -70,9 +70,25 @@ namespace TruppEx.Controllers
 
         public IActionResult Date(DateTime? startDate, DateTime? endDate)
         {
-            ViewData["StartDate"] = startDate;
-            ViewData["EndDate"] = endDate;
-            return View();
+            EmployeeData employeeData = new EmployeeData
+            {
+                LifeEvents = from le in _context.LifeEvents
+                             join ee in _context.Employees on le.EmployeeID equals ee.EmployeeID
+                             join lt in _context.LifeEventTypes on le.LifeEventTypeID equals lt.LifeEventTypeID
+                             where le.EventDate > startDate && le.EventDate < endDate
+                             select le,
+                LifeEventTypes = from le in _context.LifeEvents
+                                 join ee in _context.Employees on le.EmployeeID equals ee.EmployeeID
+                                 join lt in _context.LifeEventTypes on le.LifeEventTypeID equals lt.LifeEventTypeID
+                                 where le.EventDate > startDate && le.EventDate < endDate
+                                 select lt,
+                Employees = from le in _context.LifeEvents
+                            join ee in _context.Employees on le.EmployeeID equals ee.EmployeeID
+                            join lt in _context.LifeEventTypes on le.LifeEventTypeID equals lt.LifeEventTypeID
+                            where le.EventDate > startDate && le.EventDate < endDate
+                            select ee
+            };
+            return View(employeeData);
         }
     }
 }
