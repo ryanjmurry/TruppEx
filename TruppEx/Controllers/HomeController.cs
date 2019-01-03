@@ -4,40 +4,35 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TruppEx.Data;
 using TruppEx.Models;
 
 namespace TruppEx.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly TruppContext _context;
+
+        public HomeController(TruppContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var viewModel = new DropDownData();
+            viewModel.Employees = _context.Employees.ToList();
+            viewModel.LifeEventTypes = _context.LifeEventTypes.ToList();
+            return View(viewModel);
         }
 
-        public IActionResult About()
+        public IActionResult Details(int? employeeID, int? lifeEventTypeID, DateTime? startDate, DateTime? endDate)
         {
-            ViewData["Message"] = "Your application description page.";
-
+            ViewData["EmployeeID"] = employeeID != null ? employeeID.Value : 100;
+            ViewData["LifeEventTypeID"] = lifeEventTypeID != null ? lifeEventTypeID.Value : 100;
+            ViewData["StartDate"] = startDate != null ? startDate.Value : DateTime.Now;
+            ViewData["EndDate"] = endDate != null ? endDate.Value : DateTime.Now;
             return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

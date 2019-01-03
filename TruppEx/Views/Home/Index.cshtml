@@ -1,16 +1,37 @@
-﻿@{
+﻿@model TruppEx.Models.DropDownData
+
+@{
     ViewData["Title"] = "Home Page";
 }
-<button class="mdc-button mdc-button--outlined" data-mdc-auto-init="MDCRipple">
-    Button
-</button>
-<div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-    <input type="text" id="tf-outlined" class="mdc-text-field__input">
-    <div class="mdc-notched-outline">
-        <div class="mdc-notched-outline__leading"></div>
-        <div class="mdc-notched-outline__notch">
-            <label for="tf-outlined" class="mdc-floating-label">Your Name</label>
-        </div>
-        <div class="mdc-notched-outline__trailing"></div>
+
+<form action="/home/details" method="get">
+    <div>
+        <select name="employeeID" id="employeeDropDown">
+            <option value="">Select an Employee</option>
+            @foreach (var employee in Model.Employees)
+            {
+                <option value="@employee.EmployeeID">@employee.FullName</option>
+            }
+        </select>
     </div>
-</div>
+    <div>
+        <select name="lifeEventTypeID" id="lifeEventTypeDropDown">
+            <option value="">Select a Life Event Type</option>
+            @foreach (var lifeEventType in Model.LifeEventTypes)
+        {
+            <option value="@lifeEventType.LifeEventTypeID">@lifeEventType.Type</option>
+    }
+        </select>
+    </div>
+    <div>
+        <span>Start Date</span>
+        <input type="date" name="startDate" />
+    </div>
+    <div>
+        <span>End Date</span>
+        <input type="date" name="endDate" />
+    </div>
+    <div>
+        <button type="submit">Test</button>
+    </div>
+</form>
