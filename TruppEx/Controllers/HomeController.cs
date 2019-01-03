@@ -70,6 +70,14 @@ namespace TruppEx.Controllers
 
         public IActionResult Date(DateTime? startDate, DateTime? endDate)
         {
+            if (startDate == null)
+            {
+                startDate = new DateTime();
+            }
+            if (endDate == null)
+            {
+                endDate = DateTime.Now;
+            }
             EmployeeData employeeData = new EmployeeData
             {
                 LifeEvents = from le in _context.LifeEvents
