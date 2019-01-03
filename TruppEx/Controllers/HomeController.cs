@@ -26,12 +26,22 @@ namespace TruppEx.Controllers
             return View(viewModel);
         }
 
-        public IActionResult Details(int? employeeID, int? lifeEventTypeID, DateTime? startDate, DateTime? endDate)
+        public IActionResult Employee(int employeeID)
         {
-            ViewData["EmployeeID"] = employeeID != null ? employeeID.Value : 100;
-            ViewData["LifeEventTypeID"] = lifeEventTypeID != null ? lifeEventTypeID.Value : 100;
-            ViewData["StartDate"] = startDate != null ? startDate.Value : DateTime.Now;
-            ViewData["EndDate"] = endDate != null ? endDate.Value : DateTime.Now;
+            ViewData["EmployeeID"] = employeeID;
+            return View();
+        }
+
+        public IActionResult Type(int lifeEventTypeID)
+        {
+            ViewData["LifeEventTypeID"] = lifeEventTypeID;
+            return View();
+        }
+
+        public IActionResult Date(DateTime? startDate, DateTime? endDate)
+        {
+            ViewData["StartDate"] = startDate;
+            ViewData["EndDate"] = endDate;
             return View();
         }
     }
