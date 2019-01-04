@@ -1,10 +1,4 @@
-﻿.page-header {
-    text-align: center;
-}
-
-.mdc-layout-grid {
-    text-align: center;
-}
+﻿/* misc styles*/
 
 .margin-r-sm {
     margin-right: 20px;
@@ -14,8 +8,24 @@
     display: inline-block;
 }
 
-.button-div {
-    margin-top: 10px;
+.no-results {
+    text-align: center;
+}
+
+/* page title styles */
+
+.page-header {
+    text-align: center;
+}
+
+.page-title {
+    text-transform: capitalize;
+}
+
+/* grid and table styles */
+
+.mdc-layout-grid {
+    text-align: center;
 }
 
 .table-col {
@@ -44,14 +54,12 @@
     text-align: center;
 }
 
+/* button styles */
+
+.button-div {
+    margin-top: 10px;
+}
+
 .back-button {
-    text-align: center;
-}
-
-.page-title {
-    text-transform: capitalize;
-}
-
-.no-results {
     text-align: center;
 }
