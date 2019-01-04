@@ -96,6 +96,9 @@ namespace TruppEx.Controllers
                             where le.EventDate > startDate && le.EventDate < endDate
                             select ee
             };
+
+            ViewData["StartDate"] = startDate;
+            ViewData["EndDate"] = endDate;
             return View(employeeData);
         }
     }

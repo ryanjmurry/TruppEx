@@ -36,6 +36,11 @@
     </div>
 </div>
 
+@if(!Model.LifeEventTypes.Any())
+{
+    <h5 class="mdc-typography--headline6 no-results">Sorry, no results found, please go back and try again</h5>
+}
+
 <div class="back-button">
     <a class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple" href="/home/index">Back</a>
 </div>

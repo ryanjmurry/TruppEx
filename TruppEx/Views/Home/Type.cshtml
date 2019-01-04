@@ -14,7 +14,7 @@
 <div class="data-table">
     <div class="table-col">
         <div class="table-header">
-            <p class="mdc-typography--headline4">Event Type</p>
+            <p class="mdc-typography--headline4">Employee</p>
         </div>
         @foreach (var ee in Model.Employees)
         {
@@ -35,6 +35,11 @@
         }
     </div>
 </div>
+
+@if (!Model.Employees.Any())
+{
+    <h5 class="mdc-typography--headline6 no-results">Sorry, no results found, please go back and try again</h5>
+}
 
 <div class="back-button">
     <a class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple" href="/home/index">Back</a>
