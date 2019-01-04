@@ -4,9 +4,11 @@
     ViewData["Title"] = "By Type";
 }
 
-@foreach (var item in Model.LifeEventTypes)
+@foreach (var lt in Model.LifeEventTypes)
 {
-    <h1>@item.Type</h1>
+<div class="page-header">
+    <h2 class="mdc-typography--headline2 page-title">@lt.Type events</h2>
+</div>
 }
 
 @foreach (var item in Model.LifeEvents)

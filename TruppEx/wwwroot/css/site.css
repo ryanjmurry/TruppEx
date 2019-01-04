@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-.mdc-layout-grid__inner {
+.mdc-layout-grid {
     text-align: center;
 }
 
@@ -16,4 +16,31 @@
 
 .button-div {
     margin-top: 10px;
+}
+
+.table-col {
+    display: inline-block;
+}
+
+.data-table {
+    margin: auto;
+    width: 450px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.table-header p {
+    text-decoration: underline;
+}
+
+#employee-event-date {
+    text-align: center;
+}
+
+.back-button {
+    text-align: center;
+}
+
+.page-title {
+    text-transform: capitalize;
 }
