@@ -6,17 +6,36 @@
 
 @foreach (var lt in Model.LifeEventTypes)
 {
-<div class="page-header">
-    <h2 class="mdc-typography--headline2 page-title">@lt.Type events</h2>
+    <div class="page-header">
+        <h2 class="mdc-typography--headline2 page-title">@lt.Type events</h2>
+    </div>
+}
+
+<div class="data-table">
+    <div class="table-col">
+        <div class="table-header">
+            <p class="mdc-typography--headline4">Event Type</p>
+        </div>
+        @foreach (var ee in Model.Employees)
+        {
+            <div class="table-cell">
+                <p class="mdc-typography--headline6">@ee.FullName</p>
+            </div>
+        }
+    </div>
+    <div class="table-col employee-event-date">
+        <div class="table-header">
+            <p class="mdc-typography--headline4">Event Date</p>
+        </div>
+        @foreach (var le in Model.LifeEvents)
+        {
+            <div class="table-cell">
+                <p class="mdc-typography--headline6">@le.EventDate.ToShortDateString()</p>
+            </div>
+        }
+    </div>
 </div>
-}
 
-@foreach (var item in Model.LifeEvents)
-{
-    <h1>@item.EventDate</h1>
-}
-
-@foreach (var item in Model.Employees)
-{
-    <h1>@item.FullName</h1>
-}
+<div class="back-button">
+    <a class="mdc-button mdc-button--raised" data-mdc-auto-init="MDCRipple" href="/home/index">Back</a>
+</div>
