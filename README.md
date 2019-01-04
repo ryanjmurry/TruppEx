@@ -27,6 +27,11 @@ A simple web application that allows a user to search life events by employee, l
 * SQLite
 * Entity Framework Core
 
+## Links
+
+* GitHub Repo: https://github.com/ryanjmurry/TruppEx
+* Live Site: http://rjmtruppexercise.azurewebsites.net
+
 ## Support and contact details
 
 Issues or questions? Contact me at ryanjmurry@gmail.com
