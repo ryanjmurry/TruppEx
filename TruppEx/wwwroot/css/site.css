@@ -29,6 +29,13 @@
     justify-content: space-around;
 }
 
+.date-data-table {
+    margin: auto;
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+}
+
 .table-header p {
     text-decoration: underline;
 }

@@ -1,7 +1,7 @@
 ﻿@model TruppEx.Models.ViewModels.EmployeeData
 
 @{
-    ViewData["Title"] = "By Date";
+    ViewData["Title"] = "Life Events By Date";
     DateTime startDate = (DateTime)ViewData["StartDate"];
     DateTime endDate = (DateTime)ViewData["EndDate"];
 }
@@ -11,7 +11,7 @@
     <h2 class="mdc-typography--headline2 page-title">Life Events Between @startDate.ToShortDateString() and @endDate.ToShortDateString()</h2>
 </div>
 
-<div class="data-table">
+<div class="date-data-table">
     <div class="table-col">
         <div class="table-header">
             <p class="mdc-typography--headline4">Employee</p>
@@ -23,7 +23,7 @@
             </div>
         }
     </div>
-    <div class="table-col employee-event-date">
+    <div class="table-col">
         <div class="table-header">
             <p class="mdc-typography--headline4">Event Type</p>
         </div>

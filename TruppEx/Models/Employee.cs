@@ -8,6 +8,7 @@ namespace TruppEx.Models
         public int EmployeeID { get; set; }
         public string FullName { get; set; }
 
-        public ICollection<LifeEvent> LifeEvents { get; set; }
+        //initially thought I would use navigation properties
+        public ICollection<LifeEvent> LifeEvents { get; set; } 
     }
 }

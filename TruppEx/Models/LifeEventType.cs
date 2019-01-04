@@ -8,6 +8,7 @@ namespace TruppEx.Models
         public int LifeEventTypeID { get; set; }
         public string Type { get; set; }
 
+        //initially thought I would use navigation properties
         public ICollection<LifeEvent> LifeEvents { get; set; }
     }
 }
